@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  postgresql.data:
+    image: postgres:10
+
+  fawn.api:
+    image: fawn/api:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/Services/Fawn.WebAPI/Dockerfile
+    depends_on:
+      - postgresql.data

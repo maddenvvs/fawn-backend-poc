@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <!-- This property was manually specified because EF Core .Net CLI tools didn't work without it -->
+    <RuntimeFrameworkVersion>2.1.2</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Shared\CodeAnnotations.cs" />
+    <Compile Include="..\..\Shared\Guard.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fawn.DAL.Models\Fawn.DAL.Models.csproj" />
+    <ProjectReference Include="..\Fawn.DAL.Abstract\Fawn.DAL.Abstract.csproj" />
+  </ItemGroup>
+
+</Project>

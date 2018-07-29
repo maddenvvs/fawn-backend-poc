@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  postgresql.data:
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=postgres
+    ports:
+      - "5432:5432"
+
+  fawn.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionStrings__FawnDbConnectionString=Server=postgresql.data;Port=5432;Database=FawnDatabase;User Id=postgres;Password=mysecretpassword;
+    ports:
+      - "5000:80"
